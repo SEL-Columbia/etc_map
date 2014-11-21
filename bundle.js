@@ -48,7 +48,7 @@ var get_lat_lng = function(the_geom) {
     return leaflet.latLng(res[2], res[1]);
 };
     
-var file = '/gin_heal_etu_pt_govt_etulocation.csv';
+var file = '/etc_map/gin_heal_etu_pt_govt_etulocation.csv';
 get_data(file, map);
 
 module.exports = map;
