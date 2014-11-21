@@ -7,7 +7,7 @@ var http = require('http');
 var csv = require('csv-parser');
 var util = require('util');
 
-leaflet.Icon.Default.imagePath = 'node_modules/leaflet/dist/images/';
+leaflet.Icon.Default.imagePath = '/dist/images/';
 
 var map_div = 'map';
 var map = new leaflet.Map(map_div);
