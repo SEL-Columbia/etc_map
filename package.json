@@ -12,6 +12,7 @@
   "author": "myf",
   "license": "MIT",
   "dependencies": {
+    "chart.js": "^1.0.1-beta.2",
     "csv-parser": "^1.4.6"
   }
 }
