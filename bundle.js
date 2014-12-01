@@ -9,7 +9,7 @@ var util = require('util');
 var path = require('path');
 var Chart = require('chart.js/Chart');
 
-leaflet.Icon.Default.imagePath = './';
+leaflet.Icon.Default.imagePath = document.URL + '/images';
 
 var map_div = 'map';
 var map = new leaflet.Map(map_div);
