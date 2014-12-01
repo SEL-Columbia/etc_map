@@ -54,8 +54,7 @@ var get_data = function(loc, map) {
     });
 };
     
-var file = path.join('/', path.dirname('index.html'),
-                     'gin_heal_etu_pt_govt_etulocation.csv');
+var file = document.URL + '/gin_heal_etu_pt_govt_etulocation.csv';
 get_data(file, map);
 
 module.exports = map;
