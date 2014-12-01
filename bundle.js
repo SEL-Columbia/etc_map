@@ -1,7 +1,7 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/home/myf/moldi/etc_map/index.js":[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 window.$ = require('jquery');
 
-},{"jquery":"/home/myf/moldi/etc_map/node_modules/jquery/dist/jquery.js"}],"/home/myf/moldi/etc_map/lib/map.js":[function(require,module,exports){
+},{"jquery":9}],2:[function(require,module,exports){
 var leaflet = require('leaflet');
 var http = require('http');
 var csv = require('csv-parser');
@@ -29,7 +29,7 @@ var bind_data = function(data, map) {
     var point = get_lat_lng(data.the_geom);
     var beds_plan = data.BEDS_PLAN;
     var beds_open = data.BEDS_OPEN;
-    return leflet
+    return leaflet
                 .marker(point)
                 .addTo(map)
                 .bindPopup(util.format('Beds open/plan %s / %s', 
@@ -49,7 +49,6 @@ var get_data = function(loc, map) {
         res
             .pipe(csv())
             .on('data', function(data) {
-                console.log(data);
                 bind_data(data, map);
             });
     });
@@ -61,7 +60,7 @@ get_data(file, map);
 
 module.exports = map;
 
-},{"chart.js/Chart":"/home/myf/moldi/etc_map/node_modules/chart.js/Chart.js","csv-parser":"/home/myf/moldi/etc_map/node_modules/csv-parser/index.js","http":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/http-browserify/index.js","leaflet":"/home/myf/moldi/etc_map/node_modules/leaflet/dist/leaflet-src.js","path":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/path-browserify/index.js","util":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/util/util.js"}],"/home/myf/moldi/etc_map/node_modules/chart.js/Chart.js":[function(require,module,exports){
+},{"chart.js/Chart":3,"csv-parser":4,"http":16,"leaflet":10,"path":22,"util":43}],3:[function(require,module,exports){
 /*!
  * Chart.js
  * http://chartjs.org/
@@ -3367,7 +3366,7 @@ module.exports = map;
 
 
 }).call(this);
-},{}],"/home/myf/moldi/etc_map/node_modules/csv-parser/index.js":[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 (function (Buffer){
 var stream = require('stream')
 var inherits = require('inherits')
@@ -3534,7 +3533,7 @@ module.exports = function(opts) {
   return new Parser(opts)
 }
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/buffer/index.js","generate-function":"/home/myf/moldi/etc_map/node_modules/csv-parser/node_modules/generate-function/index.js","generate-object-property":"/home/myf/moldi/etc_map/node_modules/csv-parser/node_modules/generate-object-property/index.js","inherits":"/home/myf/moldi/etc_map/node_modules/csv-parser/node_modules/inherits/inherits_browser.js","stream":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/stream-browserify/index.js"}],"/home/myf/moldi/etc_map/node_modules/csv-parser/node_modules/generate-function/index.js":[function(require,module,exports){
+},{"buffer":11,"generate-function":5,"generate-object-property":6,"inherits":8,"stream":39}],5:[function(require,module,exports){
 var util = require('util')
 
 var last = function(str) {
@@ -3630,7 +3629,7 @@ module.exports = function() {
   return line
 }
 
-},{"util":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/util/util.js"}],"/home/myf/moldi/etc_map/node_modules/csv-parser/node_modules/generate-object-property/index.js":[function(require,module,exports){
+},{"util":43}],6:[function(require,module,exports){
 var isProperty = require('is-property')
 
 var gen = function(obj, prop) {
@@ -3639,13 +3638,13 @@ var gen = function(obj, prop) {
 
 gen.valid = isProperty
 module.exports = gen
-},{"is-property":"/home/myf/moldi/etc_map/node_modules/csv-parser/node_modules/generate-object-property/node_modules/is-property/is-property.js"}],"/home/myf/moldi/etc_map/node_modules/csv-parser/node_modules/generate-object-property/node_modules/is-property/is-property.js":[function(require,module,exports){
+},{"is-property":7}],7:[function(require,module,exports){
 "use strict"
 function isProperty(str) {
   return /^[^0-9\/\\.\-+*!~()\[\];:?'"<>,{}|`~%\^& \f\n\r\t\v​\u00a0\u1680​\u180e\u2000​\u2001\u2002​\u2003\u2004​\u2005\u2006​\u2007\u2008​\u2009\u200a​\u2028\u2029​​\u202f\u205f​\u3000]\w*$/.test(str)
 }
 module.exports = isProperty
-},{}],"/home/myf/moldi/etc_map/node_modules/csv-parser/node_modules/inherits/inherits_browser.js":[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -3670,7 +3669,7 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],"/home/myf/moldi/etc_map/node_modules/jquery/dist/jquery.js":[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.1
  * http://jquery.com/
@@ -12862,7 +12861,7 @@ return jQuery;
 
 }));
 
-},{}],"/home/myf/moldi/etc_map/node_modules/leaflet/dist/leaflet-src.js":[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 /*
  Leaflet, a JavaScript library for mobile-friendly interactive maps. http://leafletjs.com
  (c) 2010-2013, Vladimir Agafonkin
@@ -22043,7 +22042,7 @@ L.Map.include({
 
 
 }(window, document));
-},{}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/buffer/index.js":[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 /*!
  * The buffer module from node.js, for the browser.
  *
@@ -23096,7 +23095,7 @@ function decodeUtf8Char (str) {
   }
 }
 
-},{"base64-js":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/buffer/node_modules/base64-js/lib/b64.js","ieee754":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/buffer/node_modules/ieee754/index.js","is-array":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/buffer/node_modules/is-array/index.js"}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/buffer/node_modules/base64-js/lib/b64.js":[function(require,module,exports){
+},{"base64-js":12,"ieee754":13,"is-array":14}],12:[function(require,module,exports){
 var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
 ;(function (exports) {
@@ -23218,7 +23217,7 @@ var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 	exports.fromByteArray = uint8ToBase64
 }(typeof exports === 'undefined' ? (this.base64js = {}) : exports))
 
-},{}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/buffer/node_modules/ieee754/index.js":[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 exports.read = function(buffer, offset, isLE, mLen, nBytes) {
   var e, m,
       eLen = nBytes * 8 - mLen - 1,
@@ -23304,7 +23303,7 @@ exports.write = function(buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128;
 };
 
-},{}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/buffer/node_modules/is-array/index.js":[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 
 /**
  * isArray
@@ -23339,7 +23338,7 @@ module.exports = isArray || function (val) {
   return !! val && '[object Array]' == str.call(val);
 };
 
-},{}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/events/events.js":[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -23642,7 +23641,7 @@ function isUndefined(arg) {
   return arg === void 0;
 }
 
-},{}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/http-browserify/index.js":[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 var http = module.exports;
 var EventEmitter = require('events').EventEmitter;
 var Request = require('./lib/request');
@@ -23788,7 +23787,7 @@ http.STATUS_CODES = {
     510 : 'Not Extended',               // RFC 2774
     511 : 'Network Authentication Required' // RFC 6585
 };
-},{"./lib/request":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/http-browserify/lib/request.js","events":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/events/events.js","url":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/url/url.js"}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/http-browserify/lib/request.js":[function(require,module,exports){
+},{"./lib/request":17,"events":15,"url":41}],17:[function(require,module,exports){
 var Stream = require('stream');
 var Response = require('./response');
 var Base64 = require('Base64');
@@ -23999,7 +23998,7 @@ var isXHR2Compatible = function (obj) {
     if (typeof FormData !== 'undefined' && obj instanceof FormData) return true;
 };
 
-},{"./response":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/http-browserify/lib/response.js","Base64":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/http-browserify/node_modules/Base64/base64.js","inherits":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/inherits/inherits_browser.js","stream":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/stream-browserify/index.js"}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/http-browserify/lib/response.js":[function(require,module,exports){
+},{"./response":18,"Base64":19,"inherits":20,"stream":39}],18:[function(require,module,exports){
 var Stream = require('stream');
 var util = require('util');
 
@@ -24121,7 +24120,7 @@ var isArray = Array.isArray || function (xs) {
     return Object.prototype.toString.call(xs) === '[object Array]';
 };
 
-},{"stream":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/stream-browserify/index.js","util":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/util/util.js"}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/http-browserify/node_modules/Base64/base64.js":[function(require,module,exports){
+},{"stream":39,"util":43}],19:[function(require,module,exports){
 ;(function () {
 
   var object = typeof exports != 'undefined' ? exports : this; // #8: web workers
@@ -24183,14 +24182,14 @@ var isArray = Array.isArray || function (xs) {
 
 }());
 
-},{}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/inherits/inherits_browser.js":[function(require,module,exports){
-module.exports=require("/home/myf/moldi/etc_map/node_modules/csv-parser/node_modules/inherits/inherits_browser.js")
-},{"/home/myf/moldi/etc_map/node_modules/csv-parser/node_modules/inherits/inherits_browser.js":"/home/myf/moldi/etc_map/node_modules/csv-parser/node_modules/inherits/inherits_browser.js"}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/isarray/index.js":[function(require,module,exports){
+},{}],20:[function(require,module,exports){
+module.exports=require(8)
+},{"/home/myf/moldi/etc_map/node_modules/csv-parser/node_modules/inherits/inherits_browser.js":8}],21:[function(require,module,exports){
 module.exports = Array.isArray || function (arr) {
   return Object.prototype.toString.call(arr) == '[object Array]';
 };
 
-},{}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/path-browserify/index.js":[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -24418,7 +24417,7 @@ var substr = 'ab'.substr(-1) === 'b'
 ;
 
 }).call(this,require('_process'))
-},{"_process":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/process/browser.js"}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/process/browser.js":[function(require,module,exports){
+},{"_process":23}],23:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -24506,7 +24505,7 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 
-},{}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/punycode/punycode.js":[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 (function (global){
 /*! http://mths.be/punycode v1.2.4 by @mathias */
 ;(function(root) {
@@ -25017,7 +25016,7 @@ process.chdir = function (dir) {
 }(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/querystring-es3/decode.js":[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -25103,7 +25102,7 @@ var isArray = Array.isArray || function (xs) {
   return Object.prototype.toString.call(xs) === '[object Array]';
 };
 
-},{}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/querystring-es3/encode.js":[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -25190,16 +25189,16 @@ var objectKeys = Object.keys || function (obj) {
   return res;
 };
 
-},{}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/querystring-es3/index.js":[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 'use strict';
 
 exports.decode = exports.parse = require('./decode');
 exports.encode = exports.stringify = require('./encode');
 
-},{"./decode":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/querystring-es3/decode.js","./encode":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/querystring-es3/encode.js"}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/duplex.js":[function(require,module,exports){
+},{"./decode":25,"./encode":26}],28:[function(require,module,exports){
 module.exports = require("./lib/_stream_duplex.js")
 
-},{"./lib/_stream_duplex.js":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/lib/_stream_duplex.js"}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/lib/_stream_duplex.js":[function(require,module,exports){
+},{"./lib/_stream_duplex.js":29}],29:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -25292,7 +25291,7 @@ function forEach (xs, f) {
 }
 
 }).call(this,require('_process'))
-},{"./_stream_readable":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/lib/_stream_readable.js","./_stream_writable":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/lib/_stream_writable.js","_process":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/process/browser.js","core-util-is":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/node_modules/core-util-is/lib/util.js","inherits":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/inherits/inherits_browser.js"}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/lib/_stream_passthrough.js":[function(require,module,exports){
+},{"./_stream_readable":31,"./_stream_writable":33,"_process":23,"core-util-is":34,"inherits":20}],30:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -25340,7 +25339,7 @@ PassThrough.prototype._transform = function(chunk, encoding, cb) {
   cb(null, chunk);
 };
 
-},{"./_stream_transform":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/lib/_stream_transform.js","core-util-is":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/node_modules/core-util-is/lib/util.js","inherits":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/inherits/inherits_browser.js"}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/lib/_stream_readable.js":[function(require,module,exports){
+},{"./_stream_transform":32,"core-util-is":34,"inherits":20}],31:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -26326,7 +26325,7 @@ function indexOf (xs, x) {
 }
 
 }).call(this,require('_process'))
-},{"_process":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/process/browser.js","buffer":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/buffer/index.js","core-util-is":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/node_modules/core-util-is/lib/util.js","events":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/events/events.js","inherits":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/inherits/inherits_browser.js","isarray":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/isarray/index.js","stream":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/stream-browserify/index.js","string_decoder/":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/string_decoder/index.js"}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/lib/_stream_transform.js":[function(require,module,exports){
+},{"_process":23,"buffer":11,"core-util-is":34,"events":15,"inherits":20,"isarray":21,"stream":39,"string_decoder/":40}],32:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -26538,7 +26537,7 @@ function done(stream, er) {
   return stream.push(null);
 }
 
-},{"./_stream_duplex":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/lib/_stream_duplex.js","core-util-is":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/node_modules/core-util-is/lib/util.js","inherits":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/inherits/inherits_browser.js"}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/lib/_stream_writable.js":[function(require,module,exports){
+},{"./_stream_duplex":29,"core-util-is":34,"inherits":20}],33:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -26928,7 +26927,7 @@ function endWritable(stream, state, cb) {
 }
 
 }).call(this,require('_process'))
-},{"./_stream_duplex":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/lib/_stream_duplex.js","_process":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/process/browser.js","buffer":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/buffer/index.js","core-util-is":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/node_modules/core-util-is/lib/util.js","inherits":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/inherits/inherits_browser.js","stream":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/stream-browserify/index.js"}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/node_modules/core-util-is/lib/util.js":[function(require,module,exports){
+},{"./_stream_duplex":29,"_process":23,"buffer":11,"core-util-is":34,"inherits":20,"stream":39}],34:[function(require,module,exports){
 (function (Buffer){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -27038,10 +27037,10 @@ function objectToString(o) {
   return Object.prototype.toString.call(o);
 }
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/buffer/index.js"}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/passthrough.js":[function(require,module,exports){
+},{"buffer":11}],35:[function(require,module,exports){
 module.exports = require("./lib/_stream_passthrough.js")
 
-},{"./lib/_stream_passthrough.js":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/lib/_stream_passthrough.js"}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/readable.js":[function(require,module,exports){
+},{"./lib/_stream_passthrough.js":30}],36:[function(require,module,exports){
 var Stream = require('stream'); // hack to fix a circular dependency issue when used with browserify
 exports = module.exports = require('./lib/_stream_readable.js');
 exports.Stream = Stream;
@@ -27051,13 +27050,13 @@ exports.Duplex = require('./lib/_stream_duplex.js');
 exports.Transform = require('./lib/_stream_transform.js');
 exports.PassThrough = require('./lib/_stream_passthrough.js');
 
-},{"./lib/_stream_duplex.js":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/lib/_stream_duplex.js","./lib/_stream_passthrough.js":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/lib/_stream_passthrough.js","./lib/_stream_readable.js":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/lib/_stream_readable.js","./lib/_stream_transform.js":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/lib/_stream_transform.js","./lib/_stream_writable.js":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/lib/_stream_writable.js","stream":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/stream-browserify/index.js"}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/transform.js":[function(require,module,exports){
+},{"./lib/_stream_duplex.js":29,"./lib/_stream_passthrough.js":30,"./lib/_stream_readable.js":31,"./lib/_stream_transform.js":32,"./lib/_stream_writable.js":33,"stream":39}],37:[function(require,module,exports){
 module.exports = require("./lib/_stream_transform.js")
 
-},{"./lib/_stream_transform.js":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/lib/_stream_transform.js"}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/writable.js":[function(require,module,exports){
+},{"./lib/_stream_transform.js":32}],38:[function(require,module,exports){
 module.exports = require("./lib/_stream_writable.js")
 
-},{"./lib/_stream_writable.js":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/lib/_stream_writable.js"}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/stream-browserify/index.js":[function(require,module,exports){
+},{"./lib/_stream_writable.js":33}],39:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -27186,7 +27185,7 @@ Stream.prototype.pipe = function(dest, options) {
   return dest;
 };
 
-},{"events":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/events/events.js","inherits":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/inherits/inherits_browser.js","readable-stream/duplex.js":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/duplex.js","readable-stream/passthrough.js":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/passthrough.js","readable-stream/readable.js":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/readable.js","readable-stream/transform.js":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/transform.js","readable-stream/writable.js":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/readable-stream/writable.js"}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/string_decoder/index.js":[function(require,module,exports){
+},{"events":15,"inherits":20,"readable-stream/duplex.js":28,"readable-stream/passthrough.js":35,"readable-stream/readable.js":36,"readable-stream/transform.js":37,"readable-stream/writable.js":38}],40:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -27409,7 +27408,7 @@ function base64DetectIncompleteChar(buffer) {
   this.charLength = this.charReceived ? 3 : 0;
 }
 
-},{"buffer":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/buffer/index.js"}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/url/url.js":[function(require,module,exports){
+},{"buffer":11}],41:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -28118,14 +28117,14 @@ function isNullOrUndefined(arg) {
   return  arg == null;
 }
 
-},{"punycode":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/punycode/punycode.js","querystring":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/querystring-es3/index.js"}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/util/support/isBufferBrowser.js":[function(require,module,exports){
+},{"punycode":24,"querystring":27}],42:[function(require,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
     && typeof arg.fill === 'function'
     && typeof arg.readUInt8 === 'function';
 }
-},{}],"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/util/util.js":[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -28715,4 +28714,4 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/util/support/isBufferBrowser.js","_process":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/process/browser.js","inherits":"/home/myf/node_modules/watchify/node_modules/browserify/node_modules/inherits/inherits_browser.js"}]},{},["/home/myf/moldi/etc_map/lib/map.js","/home/myf/moldi/etc_map/index.js"]);
+},{"./support/isBuffer":42,"_process":23,"inherits":20}]},{},[2,1]);
