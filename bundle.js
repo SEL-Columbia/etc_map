@@ -28,6 +28,7 @@ var bind_data = function(data, map) {
     var point = get_lat_lng(data.the_geom);
     var beds_plan = data.BEDS_PLAN;
     var beds_open = data.BEDS_OPEN;
+    var disp_name =data.ADM2_NAME;
     return leaflet
                 .circleMarker(point, {
                     radius: beds_plan / 5,
@@ -36,7 +37,8 @@ var bind_data = function(data, map) {
                     fillColor: '#FF6103'
                 })
                 .addTo(map)
-                .bindPopup(util.format('Beds open/plan %s / %s', 
+                .bindPopup(util.format('%s (bed open/plan %s / %s)', 
+                                       disp_name,
                                        beds_open,
                                        beds_plan));
 };
