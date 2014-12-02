@@ -1,1 +1,1 @@
-window.$ = require('jquery');
+var map = require('./lib/map')
