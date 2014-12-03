@@ -45,9 +45,6 @@ var bind_data = function(data, map) {
                 .on('mouseover', function(ev) {
                     this.openPopup();
                 })
-//                .on('mouseout', function(ev) {
-//                    this.closePopup();
-//                })
                 .addTo(map)
                 .bindPopup(util.format('%s (bed open/plan %s / %s)', 
                                        disp_name,
@@ -19334,4 +19331,4 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":40,"_process":21,"inherits":19}]},{},[2,1]);
+},{"./support/isBuffer":40,"_process":21,"inherits":19}]},{},[1]);
